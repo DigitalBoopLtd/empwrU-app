@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* Base body without gradient; gradient provided via .bg-app overlay */
+  color: #2D1115; /* Black Bean as default text for light surfaces */
+}
+
+/* Brand background (gradient only) */
+.bg-app {
+  min-height: 100vh;
+  background-color: #EAEAEA;
+}
+
+/* Brand gradient utility (for specific pages like Welcome) */
+.bg-brand {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6D28D9 0%, #DB2777 85%, #F97316 100%);
+}
+
+/* Pearl veil version of brand gradient for chat surfaces */
+.bg-brand-pearl {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(135deg, #6D28D9 0%, #DB2777 85%, #F97316 100%);
+}
+.bg-brand-pearl::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Soft white veil with subtle vertical variation */
+  background: linear-gradient(180deg, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.86) 100%);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
+
+/* Text tokens */
+.text-ink { color: #2D1115; } /* Black Bean */
+.text-on-color { color: #EAEAEA; } /* Platinum */
+
+/* Link tokens */
+.link {
+  color: #6D28D9; /* Electric Indigo */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+.link:hover, .link:focus {
+  color: #DB2777; /* Telemagenta */
+}
+.link:visited {
+  color: #4C1D95; /* deeper indigo for visited */
+}
+
+/* Links on coloured/gradient surfaces where text is Platinum */
+.link-on-color {
+  color: inherit; /* keep Platinum */
+  text-decoration: underline;
+  text-decoration-color: rgba(234, 234, 234, 0.9);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  font-weight: 600;
+}
+.link-on-color:hover, .link-on-color:focus {
+  text-decoration-color: #ffffff;
+}
+
+@keyframes avatar-pulse {
+  0%, 100% {
+    transform: scale(1);
+    /* box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); */
+  }
+  50% {
+    transform: scale(1.05);
+    /* box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.2); */
+  }
+}
+
+.avatar-pulse {
+  animation: avatar-pulse 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass,
+  .glass-inset {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Marketing site design system - HSL variables for compatibility with shadcn/ui */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 270 50% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 50% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 50% 20%;
+
+    --primary: 270 60% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 70% 65%;
+
+    --secondary: 15 80% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 270 20% 96%;
+    --muted-foreground: 270 20% 45%;
+
+    --accent: 35 90% 60%;
+    --accent-foreground: 270 50% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 15% 90%;
+    --input: 270 15% 90%;
+    --ring: 270 60% 45%;
+
+    --radius: 2rem;
+
+    /* Pastel colors */
+    --pastel-purple: 270 50% 85%;
+    --pastel-pink: 320 60% 85%;
+    --pastel-peach: 15 70% 85%;
+    --pastel-lavender: 280 45% 88%;
+
+    /* Warm sunrise gradients with pastels */
+    --gradient-sunrise: linear-gradient(135deg, hsl(270 60% 45%) 0%, hsl(320 70% 55%) 50%, hsl(15 80% 65%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(270 40% 98%) 0%, hsl(15 60% 95%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(270 50% 97%) 0%, hsl(15 50% 97%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(320 70% 55%) 0%, hsl(15 80% 65%) 100%);
+    --gradient-pastel: linear-gradient(135deg, hsl(270 50% 85%) 0%, hsl(320 60% 88%) 50%, hsl(15 70% 90%) 100%);
+    
+    /* Subtle shadows (respecting no-shadow preference) */
+    --shadow-soft: 0 2px 8px -2px hsl(270 60% 45% / 0.08);
+    --shadow-glow: 0 0 20px hsl(270 70% 65% / 0.15);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 270 30% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 270 25% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 270 25% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 270 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 80% 70%;
+
+    --secondary: 15 70% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 270 20% 20%;
+    --muted-foreground: 270 10% 65%;
+
+    --accent: 35 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 20%;
+    --input: 270 20% 20%;
+    --ring: 270 70% 60%;
+
+    /* Pastel colors (darker in dark mode) */
+    --pastel-purple: 270 40% 35%;
+    --pastel-pink: 320 50% 35%;
+    --pastel-peach: 15 60% 35%;
+    --pastel-lavender: 280 35% 38%;
+
+    /* Dark mode gradients */
+    --gradient-sunrise: linear-gradient(135deg, hsl(270 70% 35%) 0%, hsl(320 60% 45%) 50%, hsl(15 70% 50%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(270 30% 10%) 0%, hsl(270 25% 15%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(270 25% 14%) 0%, hsl(15 30% 16%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(320 60% 45%) 0%, hsl(15 70% 50%) 100%);
+    --gradient-pastel: linear-gradient(135deg, hsl(270 40% 30%) 0%, hsl(320 50% 35%) 50%, hsl(15 60% 40%) 100%);
+    
+    --shadow-soft: 0 2px 8px -2px hsl(270 70% 60% / 0.15);
+    --shadow-glow: 0 0 20px hsl(270 80% 70% / 0.1);
+  }
+}
+
+/* Marketing site utility classes */
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+}

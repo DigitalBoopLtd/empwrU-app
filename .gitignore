@@ -1,0 +1,70 @@
+# Node / Next
+node_modules/
+.next/
+dist/
+.turbo/
+.vercel/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# macOS
+.DS_Store
+
+# Env
+.env
+.env.*
+.env.local
+
+# ============================================
+# App Features (Pre-Launch - Not Public)
+# ============================================
+# Keep only marketing/landing page visible
+# All app functionality hidden until launch
+
+# App Routes
+app/dashboard/
+app/onboarding/
+
+# Marketing - App Entry Points (hide until launch)
+app/(marketing)/get-started/
+app/(marketing)/login/
+
+# App Data & Logic
+app/data/
+app/hooks/
+app/store/
+
+# App-specific components (keep UI library)
+app/components
+app/components/Avatar.js
+app/components/BackButton.js
+app/components/Button.js
+app/components/ChatHeader.js
+app/components/MessageBubble.js
+app/components/RefreshButton.js
+app/components/page.js
+app/components/shadcn-io/
+
+# Backups
+app/page.backup.js
+
+# Assets
+assets/empwrU.ai
+assets/empwrdU*
+assets/empwrU-nicola*
+assets/Icon*
+assets/Primary*
+
+# Documentation
+client_mvp
+
+AUTHENTICATION_FLOW.md
+GITIGNORE_STRATEGY.md
+PRE_LAUNCH_CHANGES.md
+DEV_TROUBLESHOOTING.md
+
+
