@@ -39,7 +39,6 @@ app/hooks/
 app/store/
 
 # App-specific components (keep UI library)
-app/components
 app/components/Avatar.js
 app/components/BackButton.js
 app/components/Button.js
