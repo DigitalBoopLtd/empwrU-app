@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Lock, Zap, CreditCard } from 'lucide-react';
 import heroImage from '@/assets/hero-image.jpg';

@@ -29,14 +29,14 @@ export default function Footer() {
             <h4 className="font-bold mb-4">Product</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#mission" className="text-white/70 hover:text-white transition-colors">
+                <a href="#mission" className="text-white/70 hover:text-white transition-colors">
                   About
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="#approach" className="text-white/70 hover:text-white transition-colors">
+                <a href="#approach" className="text-white/70 hover:text-white transition-colors">
                   How It Works
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/get-started" className="text-white/70 hover:text-white transition-colors">

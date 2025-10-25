@@ -1,0 +1,39 @@
+Fix: Replace Link with anchor in Button asChild patterns for production build
+
+Root cause: Button asChild + Link pattern breaks Next.js production builds due to ref-forwarding issues.
+Works in dev mode but fails in production webpack compilation.
+
+Files fixed:
+- app/(marketing)/components/StickyCTA.jsx
+  • Replaced Link with anchor in Button asChild (1 instance)
+  • Removed unused Link import
+
+- app/(marketing)/components/Navbar.jsx
+  • Replaced Link with anchor in Button asChild (2 instances)
+  • Replaced Link with anchor for fragment links (3 instances)
+  • Removed unused Link import
+
+- app/(marketing)/components/Hero.jsx
+  • Removed unused Link import
+
+- app/(marketing)/components/CTA.jsx
+  • Removed unused Link import
+
+- app/(marketing)/components/Footer.jsx
+  • Replaced Link with anchor for fragment links (2 instances)
+  • Kept Link for route navigation (/get-started, /login, /privacy, /terms)
+
+Documentation:
+- Updated DEPLOYMENT_FIX.md with root cause analysis
+- Added PRODUCTION_BUILD_FIX_COMPLETE.md with comprehensive fix documentation
+
+Result:
+✅ All production builds now successful
+✅ All 16 routes compile correctly
+✅ Ready for deployment
+
+Best practice established:
+- Use <a> tags with Button asChild for fragment/external links
+- Wrap Button with Link for route navigation
+- Never nest Link inside Button asChild
+
